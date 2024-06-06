@@ -55,7 +55,7 @@ pipeline {
         stage('Run Ansible Playbook') {
             steps {
                 bat """
-                "$PLINK_PATH" -pw "$DEPLOY_PASSWORD" "$DEPLOY_USER@$DEPLOY_HOST" "ansible-playbook /path/to/${env.BRANCH_NAME}-deployment-playbook.yml"
+                "$PLINK_PATH" -pw "$DEPLOY_PASSWORD" "$DEPLOY_USER@$DEPLOY_HOST" "ansible-playbook /home/vagrant/ansible_project/react/${env.BRANCH_NAME}-deployment-playbook.yml"
                 """
             }
         }
