@@ -60,16 +60,16 @@ pipeline {
             }
         }
 
-        stage('Notify and Trigger Next Build') {
-            when {
-                expression { env.BRANCH_TO_BUILD != null }
-            }
-            steps {
-                script {
-                    build job: 'MultiBranchDeployment_React', parameters: [[$class: 'StringParameterValue', name: 'BRANCH', value: env.BRANCH_TO_BUILD]]
-                }
-            }
-        }
+        // stage('Notify and Trigger Next Build') {
+        //     when {
+        //         expression { env.BRANCH_TO_BUILD != null }
+        //     }
+        //     steps {
+        //         script {
+        //             build job: 'MultiBranchDeployment_React', parameters: [[$class: 'StringParameterValue', name: 'BRANCH', value: env.BRANCH_TO_BUILD]]
+        //         }
+        //     }
+        // }
     }
 
     post {
