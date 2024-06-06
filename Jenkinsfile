@@ -61,12 +61,11 @@ pipeline {
         }
 
         stage('Notify and Trigger Next Build') {
-            when {
-                expression { env.BRANCH_TO_BUILD != null }
-            }
+        
             steps {
                 script {
-                    build job: 'MultiBranchDeployment_React', parameters: [[$class: 'StringParameterValue', name: 'BRANCH', value: env.BRANCH_TO_BUILD]]
+                    // build job: 'MultiBranchDeployment_React', parameters: [[$class: 'StringParameterValue', name: 'BRANCH', value: env.BRANCH_TO_BUILD]]
+                    build(job: "MultiBranchDeployment" + "/" + "${env.BRANCH_TO_BUILD}".replaceAll('/', '%2F'))
                 }
             }
         }
