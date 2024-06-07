@@ -1,6 +1,6 @@
 pipeline {
     agent any
-
+    //comment to check github webhook integration
     environment {
         DEPLOY_USER = 'vagrant'
         DEPLOY_HOST = '192.168.33.10'
